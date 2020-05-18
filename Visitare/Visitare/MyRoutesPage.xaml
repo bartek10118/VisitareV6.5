@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:models="clr-namespace:Visitare.Models;assembly=Visitare"
+             mc:Ignorable="d"
+             x:Class="Visitare.MyRoutesPage"
+             BackgroundColor="#FDDA8A">
+    <NavigationPage.TitleView>
+        <Label Text="Moje Trasy" TextColor="White" FontSize="Title" Margin="10,0"/>
+    </NavigationPage.TitleView>
+    <ContentPage.BindingContext>
+        <models:MyRoutesViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar x:Name="SearchRoutes" TextChanged="MethodSearchRoutes" HeightRequest="50"></SearchBar>
+            <ListView x:Name="myroutesList"
+                HorizontalOptions="Center"  
+                VerticalOptions="Center"
+                ItemTapped="OnTapped"
+                SelectionMode="None"
+                ItemsSource="{Binding Routes}"
+                SeparatorColor="#90B320"
+                HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Name}" TextColor="Black"
+                                           FontAttributes="Bold" FontSize="20"
+                                           HorizontalTextAlignment="Center"
+                                           Margin="20,10,20,10"/>
+                                    <Label Text="{Binding Description}" TextColor="Black"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           FontAttributes="Italic" FontSize="10"
+                                           Margin="10"/>
+                                    <ImageButton x:Name="deleteButton" Source="redX.png"
+                                            HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"
+                                            Clicked="OnXClicked" BackgroundColor="#FDDA8A" CornerRadius="20"
+                                            WidthRequest="30" HeightRequest="30" Margin="3"
+                                            
+                                    />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

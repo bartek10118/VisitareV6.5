@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Visitare;assembly=Visitare"
+             mc:Ignorable="d"
+             BackgroundColor="#FDDA8A"
+             x:Class="Visitare.CreatorPage">
+    <NavigationPage.TitleView>
+        <Label Text="Kreator" TextColor="White" FontSize="Title" Margin="10,0"/>
+    </NavigationPage.TitleView>
+    <StackLayout Orientation="Vertical"> 
+        <StackLayout HeightRequest="450">
+            <local:CustomMap x:Name="customMap" Margin="2" IsShowingUser="true" MapClicked="OnMapClicked">
+
+            </local:CustomMap> 
+
+            <Entry x:Name="nazwaEntry" Placeholder="Podaj nazwę punktu:" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="opisEntry" Placeholder="Opis punktu:" FontSize="Small" HorizontalTextAlignment="Center"/>
+
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Start" Spacing="15" Margin="8">
+            <Button Text="Wyczyść" BackgroundColor="#be8feb" FontAttributes="Bold" WidthRequest="110" HorizontalOptions="End"
+                Clicked="OnClearClicked" CornerRadius="25" TextColor="Black"/>
+            <Button Text="Moje Trasy" BackgroundColor="#be8feb" FontAttributes="Bold" WidthRequest="80" HorizontalOptions="EndAndExpand"
+                Clicked="OnMyRoutesClicked" CornerRadius="25" TextColor="Black"/>
+            <Button Text="Nowa Trasa" BackgroundColor="#be8feb" FontAttributes="Bold" WidthRequest="80" HorizontalOptions="EndAndExpand"
+                Clicked="OnNewRouteClicked" CornerRadius="25" TextColor="Black"/>
+            <Button Text="Quiz do trasy" BackgroundColor="#be8feb" FontAttributes="Bold" HorizontalOptions="End"
+                Clicked="QuizForRoutes" CornerRadius="25" TextColor="Black" WidthRequest="80"/>
+        </StackLayout>
+        <StackLayout HeightRequest="450" Margin="-15">
+            <Entry x:Name="trasaEntry" Placeholder="Podaj nazwę trasy:" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="opistrasyEntry" Placeholder="Opis trasy:" FontSize="Small" HorizontalTextAlignment="Center"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
